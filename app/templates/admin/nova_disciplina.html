@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>➕ Nova Disciplina</h2>
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+      <label for="nome_disciplina" class="form-label">Nome:</label>
+      {{ form.nome_disciplina(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Criar</button>
+  </form>
+</div>
+{% endblock %}

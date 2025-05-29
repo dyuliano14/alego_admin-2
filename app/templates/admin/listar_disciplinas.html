@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>📚 Disciplinas</h2>
+  <ul id="lista-disciplinas" class="list-group mb-3"></ul>
+  <a href="{{ url_for('main.nova_disciplina') }}" class="btn btn-success">➕ Nova Disciplina</a>
+</div>
+
+<script>
+  if (!localStorage.getItem('access_token')) {
+    window.location.href = "/login";
+  }
+
+</script>
+<script>
+  // Função para carregar as disciplinas
+  async function carregarDisciplinas() {
+    try {
+      const response = await fetch('/api/disciplinas');
+      const disciplinas = await response.json();
+
+      const lista = document.getElementById('lista-disciplinas');
+      lista.innerHTML = '';
+
+      disciplinas.forEach(d => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `
+          <span>${d.titulo}</span>
+          <div>
+            <a href="/editar_disciplina/${d.id}" class="btn btn-sm btn-primary me-2">✏️ Editar</a>
+            <button class="btn btn-sm btn-danger" onclick="excluirDisciplina(${d.id})">🗑️</button>
+          </div>
+        `;
+        lista.appendChild(li);
+      });
+    } catch (error) {
+      console.error('Erro ao carregar disciplinas:', error);
+    }
+  }
+  
+  // Função para excluir uma disciplina
+  async function excluirDisciplina(id) {
+    if (!confirm('Tem certeza que deseja excluir esta disciplina?')) return;
+
+    try {
+      const response = await fetch(`/api/disciplinas/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('access_token') // Se estiver usando JWT
+        }
+      });
+
+      if (response.ok) {
+        carregarDisciplinas();
+      } else {
+        alert('Erro ao excluir disciplina.');
+      }
+    } catch (error) {
+      console.error('Erro ao excluir disciplina:', error);
+    }
+  }
+
+  // Carregar as disciplinas ao carregar a página
+  document.addEventListener('DOMContentLoaded', carregarDisciplinas);
+</script>
+{% endblock %}

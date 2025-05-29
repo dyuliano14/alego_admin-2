@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>✏️ Editar Disciplina</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <label for="nome_disciplina">Nome da Disciplina:</label><br>
+    {{ form.nome_disciplina(size=32) }}<br><br>
+
+    <button type="submit">Salvar</button>
+</form>
+
+<a href="{{ url_for('main.listar_disciplinas') }}">⬅️ Voltar</a>
+{% endblock %}
+

@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+*.env
+
+# Flask stuff
+instance/
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# IDEs e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Migrations e build artefacts
+migrations/
+dist/
+build/
+*.egg-info
+
+# Arquivos temporários
+*.bak
+*.swp
+*.tmp
+
+# Arquivos exportados
+*.csv
+*.json
+*.md~
+
+# Node e front (caso use no futuro)
+node_modules/
+public/build/
