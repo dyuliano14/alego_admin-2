@@ -12,3 +12,4 @@ class Config:
     MAIL_PASSWORD = 'admin123'
  # 💡 Adicione essa linha:
     UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'static', 'disciplinas')
+    
