@@ -29,7 +29,6 @@ instance/
 Thumbs.db
 
 # Migrations e build artefacts
-migrations/
 dist/
 build/
 *.egg-info
