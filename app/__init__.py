@@ -17,7 +17,8 @@ migrate = Migrate()
 csrf = CSRFProtect()
 mail = Mail()
 login_manager = LoginManager()
-login_manager.login = 'main.login_view'
+login_manager.login_view = 'main.login_view' # Corrigido para corresponder à função login_view
+login_manager.login_message_category = 'info' # Opcional: para estilizar a mensagem de "login necessário"
 jwt = JWTManager()
 
 

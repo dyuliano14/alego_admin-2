@@ -61,3 +61,20 @@ body {
   margin-bottom: 20px;
   list-style: none;
 }
+
+.footer {
+  background-color: #f0f0f0; /* Cor de fundo */
+  padding: 20px; /* Espaçamento */
+  text-align: center; /* Centralizar o conteúdo */
+}
+
+.footer-logo {
+  width: 100px; /* Largura da imagem */
+  height: auto; /* Altura automática para manter proporções */
+  margin-bottom: 10px; /* Espaço entre a imagem e o texto */
+}
+
+.footer-text {
+  font-size: 14px; /* Tamanho da fonte */
+  color: #666; /* Cor do texto */
+}

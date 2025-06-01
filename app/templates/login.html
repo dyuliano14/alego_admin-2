@@ -3,13 +3,13 @@
 {% block content %}
 <div class="container">
     <div class="info"></div>
-<h2>Login</h2>
-<form method="POST">
-    {{ form.hidden_tag() }}
-    <p>{{ form.username.label }} {{ form.username() }}</p>
-    <p>{{ form.password.label }} {{ form.password() }}</p>
-    <p>{{ form.submit() }}</p>
-</form>
-</div>
+        <h2>Login</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>{{ form.username.label }} {{ form.username() }}</p>
+            <p>{{ form.password.label }} {{ form.password() }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
 </div>
 {% endblock %}

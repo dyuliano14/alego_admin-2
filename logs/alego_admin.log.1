@@ -1,4 +1,4 @@
-2025-06-01 07:05:12,258 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
+2025-06-01 07:26:59,539 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
 Traceback (most recent call last):
   File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -30,70 +30,34 @@ Traceback (most recent call last):
   File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?
-2025-06-01 07:09:26,348 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\routes.py", line 18, in home
-    return redirect(url_for('main.login.view'))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\helpers.py", line 232, in url_for
-    return current_app.url_for(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?
-2025-06-01 07:09:52,984 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
-2025-06-01 07:10:32,054 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
-2025-06-01 07:10:37,960 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
-Traceback (most recent call last):
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\routes.py", line 18, in home
-    return redirect(url_for('main.login.view'))
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\helpers.py", line 232, in url_for
-    return current_app.url_for(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?
-2025-06-01 07:26:52,521 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 07:31:42,757 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 07:42:10,909 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 08:05:45,242 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 08:11:16,517 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 08:20:52,817 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 08:35:48,170 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:43:44,048 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:46:30,337 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:48:41,066 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:50:07,398 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:51:47,720 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 09:56:24,902 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:01:09,515 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:03:39,614 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:04:41,442 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:06:57,498 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:07:50,249 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:09:04,515 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:14:54,127 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:15:24,619 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:16:17,369 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:18:09,439 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:21:16,697 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:21:58,440 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:22:45,488 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:23:26,352 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:23:53,721 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:24:27,423 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:35:16,362 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:36:47,361 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 10:39:48,856 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]

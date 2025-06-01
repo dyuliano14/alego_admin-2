@@ -6,6 +6,7 @@ from .forms import LoginForm, RegisterForm, RequestResetForm, ResetPasswordForm,
 from flask_mail import Message, Mail
 from .utils import gerar_token, verificar_token
 from . import db
+from datetime import datetime
 import os
 import csv
 import json
@@ -15,11 +16,13 @@ mail = Mail()
 
 
 
+# routes.py
+
 @main.route('/login', methods=['GET', 'POST'])
 def login_view():
-    form = LoginForm()  # 👈 isso estava faltando
+    form = LoginForm()  # 👈 Isso é bom!
 
-    if form.validate_on_submit():
+    if form.validate_on_submit(): # Código para POST
         user = User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
@@ -27,11 +30,17 @@ def login_view():
             return redirect(next_page or url_for('main.dashboard_view'))
 
         flash('Usuário ou senha inválidos', 'danger')
+        # ❗️ Faltava um retorno aqui para o caso de falha no POST e re-renderização do form
+        return render_template('login.html', form=form) # Adicione este retorno
 
-    return render_template('login.html', form=form)  # 👈 passa o form para o template
+    # Código para GET (primeira vez que acessa a página)
+    return render_template('login.html', form=form)
 
+# routes.py
 @main.route('/')
 def home():
+    if current_user.is_authenticated:
+        return redirect(url_for('main.dashboard_view'))
     return redirect(url_for('main.login_view'))
 
 @main.route('/logout')
@@ -39,6 +48,17 @@ def home():
 def logout_view():
     logout_user()
     return redirect(url_for('main.login_view'))
+
+
+
+@main.context_processor
+def inject_current_year():
+    """
+    Injects the current year into the template context.
+    This makes {{ current_year }} available in all templates
+    rendered by routes in this blueprint.
+    """
+    return {'current_year': datetime.utcnow().year}
 
 @main.route('/dashboard')
 @login_required
@@ -128,26 +148,33 @@ def excluir_disciplina_view(id):
 
 
 
+# routes.py
 @main.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        existing = User.query.filter_by(username=form.username.data).first()
-        if existing:
-            flash('Usuário já existe!', 'danger')
-            return redirect(url_for('main.register'))
+        existing_user = User.query.filter_by(username=form.username.data).first()
+        if existing_user:
+            flash('Este nome de usuário já existe. Por favor, escolha outro.', 'danger')
+            return render_template('admin/register.html', form=form) # Re-renderiza com o erro
+
+        # Se o email for um campo obrigatório e único:
+        # existing_email = User.query.filter_by(email=form.email.data).first()
+        # if existing_email:
+        #     flash('Este email já está registrado. Por favor, use outro.', 'danger')
+        #     return render_template('admin/register.html', form=form)
 
         new_user = User(
             username=form.username.data,
-            email=form.email.data,
+            # email=form.email.data, # Se você tiver o campo email no RegisterForm e no modelo User
             password=generate_password_hash(form.password.data)
         )
         db.session.add(new_user)
         db.session.commit()
-        flash('Usuário registrado com sucesso!', 'success')
+        flash('Usuário registrado com sucesso! Faça o login.', 'success')
         return redirect(url_for('main.login_view'))
 
-    return render_template('admin/register.html', form=form)
+    return render_template('admin/register.html', form=form) # Passe o form para o template
 
 @main.route('/recuperar', methods=['GET', 'POST'])
 def recuperar():

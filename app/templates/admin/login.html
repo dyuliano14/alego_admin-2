@@ -1,22 +1,49 @@
 {% extends 'base.html' %}
+
+{% block title %}Login - Meu App{% endblock %}
+
+{# Sobrescreve o bloco de navegação para não exibir nada nesta página #}
+{% block navigation %}
+{% endblock navigation %}
+
 {% block content %}
-<div class="container mt-5">
-  <div class="card shadow-sm mx-auto" style="max-width: 400px;">
-    <div class="card-body">
-      <h4 class="card-title text-center mb-4">🔐 Login Admin</h4>
-      <form method="POST">
-        {{ form.hidden_tag() }}
-        <div class="mb-3">
-          {{ form.username.label(class="form-label") }}
-          {{ form.username(class="form-control") }}
+<div class="row justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">Login</h2>
+                <form method="POST" action="{{ url_for('main.login_view') }}"> {# Boa prática usar url_for na action #}
+                    {{ form.hidden_tag() }} {# CSRF token #}
+                    <div class="mb-3">
+                        {{ form.username.label(class="form-label") }}
+                        {{ form.username(class="form-control form-control-lg", placeholder="Usuário") }}
+                        {% for error in form.username.errors %}
+                            <small class="text-danger">{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password.label(class="form-label") }}
+                        {{ form.password(class="form-control form-control-lg", placeholder="Senha") }}
+                        {% for error in form.password.errors %}
+                            <small class="text-danger">{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                    <div class="d-grid mb-3">
+                        {{ form.submit(class="btn btn-primary btn-lg") }}
+                    </div>
+                    <div class="text-center">
+                         <a href="{{ url_for('main.recuperar') }}">Esqueceu a senha?</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-          {{ form.password.label(class="form-label") }}
-          {{ form.password(class="form-control") }}
+        <div class="text-center mt-3">
+            <p>Não tem uma conta? <a href="{{ url_for('main.register') }}">Registre-se aqui</a></p>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Entrar</button>
-      </form>
     </div>
-  </div>
 </div>
 {% endblock %}
+
+{# Se não quiser o footer na página de login, descomente abaixo #}
+{# {% block footer %}
+{% endblock footer %} #}
