@@ -7,13 +7,17 @@ from flask_mail import Mail
 from flask_jwt_extended import JWTManager
 from config import Config
 from flask_cors import CORS
+import os
+import logging
+from logging.handlers import RotatingFileHandler
+
 
 db = SQLAlchemy()
 migrate = Migrate()
 csrf = CSRFProtect()
 mail = Mail()
 login_manager = LoginManager()
-login_manager.login_view = 'main.login'
+login_manager.login = 'main.login_view'
 jwt = JWTManager()
 
 
@@ -31,7 +35,19 @@ def create_app():
     login_manager.init_app(app)
     mail.init_app(app)
     jwt.init_app(app)
+    if not app.debug:
+            if not os.path.exists('logs'):
+                os.mkdir('logs')
+            file_handler = RotatingFileHandler('logs/alego_admin.log', maxBytes=10240, backupCount=5)
+            file_handler.setFormatter(logging.Formatter(
+                '%(asctime)s [%(levelname)s] - %(message)s [em %(pathname)s:%(lineno)d]'
+            ))
+            file_handler.setLevel(logging.INFO)
+            app.logger.addHandler(file_handler)
 
+            app.logger.setLevel(logging.INFO)
+            app.logger.info('Alego Admin Iniciado')
+                     
     from .models import User
 
     @login_manager.user_loader
@@ -44,5 +60,5 @@ def create_app():
     from .api import api
     app.register_blueprint(api)
     csrf.exempt(api)
-
+       
     return app

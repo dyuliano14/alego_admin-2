@@ -5,7 +5,6 @@ from .models import User, Disciplina
 from .forms import LoginForm, RegisterForm, RequestResetForm, ResetPasswordForm, NovaDisciplinaForm
 from flask_mail import Message, Mail
 from .utils import gerar_token, verificar_token
-from app.forms import LoginForm
 from . import db
 import os
 import csv
@@ -14,12 +13,10 @@ import json
 main = Blueprint('main', __name__)
 mail = Mail()
 
-@main.route('/')
-def home():
-    return redirect(url_for('main.login'))
+
 
 @main.route('/login', methods=['GET', 'POST'])
-def login():
+def login_view():
     form = LoginForm()  # 👈 isso estava faltando
 
     if form.validate_on_submit():
@@ -27,25 +24,30 @@ def login():
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
             next_page = request.args.get('next')
-            return redirect(next_page or url_for('main.listar_disciplinas'))
+            return redirect(next_page or url_for('main.dashboard_view'))
+
         flash('Usuário ou senha inválidos', 'danger')
 
     return render_template('login.html', form=form)  # 👈 passa o form para o template
 
+@main.route('/')
+def home():
+    return redirect(url_for('main.login_view'))
+
 @main.route('/logout')
 @login_required
-def logout():
+def logout_view():
     logout_user()
-    return redirect(url_for('main.login'))
+    return redirect(url_for('main.login_view'))
 
 @main.route('/dashboard')
 @login_required
-def dashboard():
+def dashboard_view():
     return render_template('admin/dashboard.html')
 
 @main.route('/nova_disciplina', methods=['GET', 'POST'])
 @login_required
-def nova_disciplina():
+def nova_disciplina_view():
     form = NovaDisciplinaForm()
     
     if form.validate_on_submit():
@@ -65,7 +67,7 @@ def nova_disciplina():
         db.session.add(nova)
         db.session.commit()
         flash("Disciplina criada com sucesso!")
-        return redirect(url_for('main.listar_disciplinas'))
+        return redirect(url_for('main.listar_disciplinas_view'))
 
     # 🔥 Importante: precisa ter esse retorno para método GET
     return render_template('admin/nova_disciplina.html', form=form)
@@ -78,7 +80,7 @@ def upload_flashcards(nome):
     file = request.files.get('file')
     if not file or not file.filename.endswith('.csv'):
         flash("Envie um arquivo .CSV válido.")
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('main.dashboard_view'))
 
     path = os.path.join(current_app.config['UPLOAD_FOLDER'], nome)
     os.makedirs(path, exist_ok=True)
@@ -91,17 +93,17 @@ def upload_flashcards(nome):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
     flash("Flashcards enviados com sucesso!")
-    return redirect(url_for('main.dashboard'))
+    return redirect(url_for('main.dashboard_view'))
 
 @main.route('/disciplinas')
 @login_required
-def listar_disciplinas():
+def listar_disciplinas_view():
     disciplinas = Disciplina.query.order_by(Disciplina.ordem).all()
     return render_template('admin/listar_disciplinas.html', disciplinas=disciplinas)
 
 @main.route('/editar_disciplina/<int:id>', methods=['GET', 'POST'])
 @login_required
-def editar_disciplina(id):
+def editar_disciplina_view(id):
     disciplina = Disciplina.query.get_or_404(id)
     form = NovaDisciplinaForm(obj=disciplina)
 
@@ -109,7 +111,7 @@ def editar_disciplina(id):
         disciplina.titulo = form.nome_disciplina.data.strip()
         db.session.commit()
         flash('Disciplina atualizada com sucesso!', 'success')
-        return redirect(url_for('main.listar_disciplinas'))  # ✅ Corrigido: precisa retornar aqui
+        return redirect(url_for('main.listar_disciplinas_view'))  # ✅ Corrigido: precisa retornar aqui
 
     return render_template('admin/editar_disciplina.html', form=form, disciplina=disciplina)  # ✅ retorno em qualquer caso
 
@@ -117,12 +119,12 @@ def editar_disciplina(id):
 
 @main.route('/excluir_disciplina/<int:id>', methods=['POST'])
 @login_required
-def excluir_disciplina(id):
+def excluir_disciplina_view(id):
     d = Disciplina.query.get_or_404(id)
     db.session.delete(d)
     db.session.commit()
     flash(f'Disciplina "{d.titulo}" excluída com sucesso!')
-    return redirect(url_for('main.listar_disciplinas'))
+    return redirect(url_for('main.listar_disciplinas_view'))
 
 
 
@@ -143,7 +145,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         flash('Usuário registrado com sucesso!', 'success')
-        return redirect(url_for('main.login'))
+        return redirect(url_for('main.login_view'))
 
     return render_template('admin/register.html', form=form)
 
@@ -162,7 +164,7 @@ def recuperar():
             mail.send(msg)
 
         flash('Se o e-mail estiver registrado, enviaremos um link.', 'info')
-        return redirect(url_for('main.login'))
+        return redirect(url_for('main.login_view'))
 
     return render_template('admin/recuperar.html', form=form)
 
@@ -179,6 +181,6 @@ def redefinir(token):
         user.password = form.password.data
         db.session.commit()
         flash('Senha redefinida com sucesso!', 'success')
-        return redirect(url_for('main.login'))
+        return redirect(url_for('main.login_view'))
 
     return render_template('admin/redefinir.html', form=form)

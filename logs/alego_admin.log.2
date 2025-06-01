@@ -1,0 +1,103 @@
+2025-06-01 06:25:37,936 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:28:28,599 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:29:36,311 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:29:51,418 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:40:59,424 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:41:08,028 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\routes.py", line 18, in home
+    return redirect(url_for('main.login.view'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?
+2025-06-01 06:41:47,061 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:41:58,820 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\routes.py", line 18, in home
+    return redirect(url_for('main.login.view'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?
+2025-06-01 06:58:11,084 [INFO] - Alego Admin Iniciado [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\__init__.py:49]
+2025-06-01 06:58:15,100 [ERROR] - Exception on / [GET] [em C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\app\routes.py", line 18, in home
+    return redirect(url_for('main.login.view'))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\helpers.py", line 232, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dyuliano.magalhães\Documents\ALEGO\alego_admin-2\alego_admin-2\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.login.view'. Did you mean 'main.login_view' instead?

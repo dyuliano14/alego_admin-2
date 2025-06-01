@@ -6,13 +6,13 @@
   <div class="container">
   <div class="row">
     <div class="col-sm">
-    <a href="{{ url_for('main.nova_disciplina') }}" class="btn btn-secondary" class="btn btn-primary">➕ Nova Disciplina</a></li>  
+    <a href="{{ url_for('main.nova_disciplina_view') }}" class="btn btn-secondary">➕ Nova Disciplina</a>
+
     </div>
     <div class="col-sm">
     <a href="/api/disciplinas/exportar/csv" class="btn btn-primary">Exportar Disciplinas (CSV)</a></li>
     </div>
 </div>
-{% endblock %}
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class="flash-messages">
@@ -22,3 +22,4 @@
     </ul>
   {% endif %}
 {% endwith %}
+{% endblock %}
